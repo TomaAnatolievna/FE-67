@@ -1,66 +1,111 @@
-var colors = [{
-    name: 'red',
-    img: 'red-iphone.png',
-    price: 200
-}, {
-    name: 'black',
-    img: 'black1.png',
-    price: 300
-}, {
-    name: 'silver',
-    img: 'silver.png',
-    price: 400
-}];
+var memory;
+var memory_choose;
+var tel_color;
+var price;
+var memories = [
+	{
+		volume: "128",
+		price: "500"
+	}, 
 
-var memories = [{
-    val: 128,
-    price: 700
-}, {
-    val: 256,
-    price: 900
-}, {
-    val: 512,
-    price: 1100
-}];
+	{
+		volume: "256",
+		price: "700"
+	}, 
 
-var defaultImg = 'img/default.png';
+	{
+		volume: "512",
+		price: "1000"
+	}
+]
 
-var color;
-var img = defaultImg;
-var memory = 0;
-var price_memory = 0;
-var price_color = 0;
+var colors = [
+	{
+		name: 'red'
+	},
 
-colors: while (true) {
-    color = prompt('Color?');
-    if (color === null) {
-        alert('ПОКА!');
+	{
+		name: 'black'
+	},
+
+	{
+		name: 'blue'
+	},
+
+	{
+		name: 'silver'
+	},
+
+	{
+		name: 'gold'
+	}
+]
+
+var x = true;
+while (x) {
+	tel_color_choose = prompt('Choose color: black, blue, red, silver, gold: ');
+
+	if (tel_color_choose === null) {
+		confirm('Bye!');
         break;
-    }
-    for (var i = 0; i < colors.length; i++) {
-        if (color === colors[i].name) {
-            img = colors[i].img;
-            price_color = colors[i].price;
-            break colors;
-        }
-    }
+	}
+
+	for (var i = 0; i < colors.length; i++) {
+		if(colors[i].name === tel_color_choose) {
+			document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="'+colors[i].name+'.jpg">');
+			x = false;
+			break;
+		}
+	}
 }
 
-memories: while (img !== defaultImg) {
-    memory = prompt('Memory?');
-    if (memory === null) {
-        memory = 0;
-        alert('ПОКА!');
-        break;
-    }
-    for (var i = 0; i < memories.length; i++) {
-        if (+memory === memories[i].val) {
-            price_memory = memories[i].price;
-            break memories;
-        }
-    }
+
+var y = true;
+if (tel_color_choose)
+{
+	while (y) {
+		memory_choose = prompt('Choose memory: 128, 256, 512: ');
+		if (+memory_choose) {
+			for (var i = 0; i < memories.length; i++) {
+				console.log("first");
+				if (memory_choose === memories[i].volume) {
+					document.write('<h2>Your phone memory = </h2>' + memories[i].volume);
+					document.write('<h2>Price of your phone = </h2>' + memories[i].price);
+					break;
+				}	
+			}
+		}
+		else {
+			confirm('Bye-bye!');
+		}
+		break;
+	}
 }
 
-document.write('<img width="150" src="/home/toma/Courses/JavaScript/DZ/DZ_2/img/' + img + '">');
-document.write('<h2>Price: ' + (price_color + price_memory) + '$</h2>');
-document.write('<h3>Memory: ' + memory + 'GB</h3>');
+
+
+
+	// if (tel_color_choose === 'black') {
+ //        document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="black.jpg">');
+ //        break;
+ //    }
+ //    else if (tel_color_choose === 'blue') {
+	//         document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="blue.jpg">');
+	//         break;
+	//     }
+	// else if (tel_color_choose === 'red') {
+	//         document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="red.jpg">');
+	//         break;
+	//     }
+	// else if (tel_color_choose === 'silver') {
+	//         document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="silver.jpg">');
+	//         break;
+	//     }
+	// else if (tel_color_choose === 'gold') {
+	//         document.write('<h2>Your phone looks like</h2>' + '<br>' + '<img src="gold.jpg">');
+	//         break;
+	//     }
+	// else if (tel_color_choose === null) {
+	// 		confirm('Bye!');
+	//         break;
+	// }

@@ -1,130 +1,66 @@
-// Task 1
-var arr = [3, 5, 7, 10, 50, 56, 80, 89, 37];  // 9 elements
-var arr2 = [3, 5, 7, 10, 50, 56, 80, 89, 37];  // 9 elements
-  
-var pieceOfArr = function (array, start, amount) {
-	if (amount - start >= array.length) {
-        console.warn('Столько ячеек не существует');
-        return null;
+var colors = [{
+    name: 'red',
+    img: 'red-iphone.png',
+    price: 200
+}, {
+    name: 'black',
+    img: 'black1.png',
+    price: 300
+}, {
+    name: 'silver',
+    img: 'silver.png',
+    price: 400
+}];
+
+var memories = [{
+    val: 128,
+    price: 700
+}, {
+    val: 256,
+    price: 900
+}, {
+    val: 512,
+    price: 1100
+}];
+
+var defaultImg = 'img/default.png';
+
+var color;
+var img = defaultImg;
+var memory = 0;
+var price_memory = 0;
+var price_color = 0;
+
+colors: while (true) {
+    color = prompt('Color?');
+    if (color === null) {
+        alert('ПОКА!');
+        break;
     }
-    if (amount < 0) {
-        console.warn('Такого куска нет');
-        return null;
+    for (var i = 0; i < colors.length; i++) {
+        if (color === colors[i].name) {
+            img = colors[i].img;
+            price_color = colors[i].price;
+            break colors;
+        }
     }
-    return array.slice(start, amount + start);
 }
 
-// console.log(arr2.slice(3, 7));
-console.log(arr.splice(1, 7));
-console.log(pieceOfArr(arr2, 1, 7));
+memories: while (img !== defaultImg) {
+    memory = prompt('Memory?');
+    if (memory === null) {
+        memory = 0;
+        alert('ПОКА!');
+        break;
+    }
+    for (var i = 0; i < memories.length; i++) {
+        if (+memory === memories[i].val) {
+            price_memory = memories[i].price;
+            break memories;
+        }
+    }
+}
 
-// Task 2
-
-// var mySlice = function (str) {
-// 	if (str === '') {
-// 		console.log('You enter nothing!')
-// 		return NaN;
-// 	}
-
-// 	if (!(str)) {
-// 		console.log('You choose CANCEL!')
-// 		return null;
-// 	}
-
-// 	if (+str === 0) {
-// 		console.log('You enter a 0!')
-// 		return str;
-// 	}
-
-// 	if (+str) {
-// 		console.log('You enter a number!')
-// 		return str;	
-// 	}
-
-// 	if (typeof(str) === 'string') {
-// 		console.log('You enter a string!')
-// 		return NaN;
-// 	}
-// }
-
-// var str = prompt("Enter something: ");
-// console.log(mySlice(str));
-
-
-// Task 3
-// var sign_check = function (sign) {
-// 	console.log('Its sign_check');
-// 	var sign_mas = ["-", "+", "*", "/", "%", "^"];
-// 	for (var i = 0; i < sign_mas.length; i++) {
-// 		console.log("Good mas")
-// 		if (sign == sign_mas[i]) {
-// 			console.log("Good sign")
-// 			return sign;
-// 		}
-// 	}
-// 	return NaN;
-// }
-
-// var mySlice = function (str) {
-// 	console.log('Its mySlice');
-// 	if (str === '') {
-// 		console.log('You enter nothing!')
-// 		return NaN;
-// 	}
-
-// 	if (!(str)) {
-// 		console.log('You choose CANCEL!')
-// 		return null;
-// 	}
-
-// 	if (+str === 0) {
-// 		console.log('You enter a 0!')
-// 		return str;
-// 	}
-
-// 	if (+str) {
-// 		console.log('You enter a number!')
-// 		return +str;	
-// 	}
-
-// 	if (typeof(str) === 'string') {
-// 		console.log('You enter a string!')
-// 		return NaN;
-// 	}
-// }
-
-// var calculator = function( first, second, sign) {
-// 	console.log('Its calculator');
-// 	if (mySlice(first) && mySlice(second) && sign_check(sign)) {
-// 		if (sign == "*") {
-// 			return +first * +second;
-// 		}
-// 		if (sign == "/") {
-// 			return +first / +second;
-// 		}
-// 		if (sign == "+") {
-// 			return +first + +second;
-// 		}
-// 		if (sign == "-") {
-// 			return +first - +second;
-// 		}
-// 		if (sign == "^") {
-// 			return +first ^ +second;
-// 		}
-// 		if (sign == "%") {
-// 			return +first % +second;
-// 		}
-// 	}
-// 	else 
-// 	{
-// 		console.log('Something went wrong!');
-// 		return NaN;
-// 	}
-// }
-
-
-// var first = prompt("Enter first number: ");
-// var second = prompt("Enter second nuber: ");
-// var sign = prompt("Enter sign: ");
-// console.log(calculator(first, second, sign));
-
+document.write('<img width="150" src="/home/toma/Courses/JavaScript/DZ/DZ_2/img/' + img + '">');
+document.write('<h2>Price: ' + (price_color + price_memory) + '$</h2>');
+document.write('<h3>Memory: ' + memory + 'GB</h3>');
