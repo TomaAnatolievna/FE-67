@@ -12,7 +12,6 @@
         circle.className = circleClassName;
         circle.setAttribute('top', e.pageY);
         circle.setAttribute('left', e.pageX);
-        var attrs = circle.attributes; // (4) можно получить коллекцию атрибутов
         target.appendChild(circle);
     })
 
