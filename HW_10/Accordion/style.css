@@ -1,0 +1,22 @@
+.accordion {
+	width: 350px;
+	border: 10px solid #fff;
+	box-shadow: 0 0 10px grey;
+	border-radius: 25px;
+	margin: 30px;
+}
+ 
+.title {
+	border-radius: 25px;
+	text-align: center;
+	padding: 5px 0;
+	background: #c0c0c0;
+	cursor: pointer;
+}
+ 
+.body {
+	border-radius: 25px;
+	background: #c5c;
+	padding: 10px;
+	display: none;
+}

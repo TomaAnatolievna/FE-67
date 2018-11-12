@@ -74,7 +74,7 @@ Hamburger.prototype.calculateCalories = function() {
         calories += this.menu[this.topping[i]]['calories'];
     }
   }
-  
+
   return calories;
 }
 
