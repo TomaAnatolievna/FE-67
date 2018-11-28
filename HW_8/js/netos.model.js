@@ -18,17 +18,32 @@ var NotesModel = (function () {
         }
     ]
 
+    var generateId = function () {
+        return NOTES[NOTES.length - 1].id + 1;
+    }
+
     return {
         getNotes: function (renderer) {
             renderer(NOTES);
         },
         addNote: function (noteText, cb) {
+
             var newNote = {
-                id: 555, // Generate new ID
+                id: generateId(),
                 text: noteText
             }
 
             NOTES.push(newNote);
+            cb(NOTES);
+        },
+        removeNote: function (id, cb) {
+            for (var i = 0; i < NOTES.length; i++) {
+                if (NOTES[i].id === id) {
+                    NOTES.splice(i, 1);
+                    break;
+                }
+            }
+            // return NOTES;
             cb(NOTES);
         }
     }

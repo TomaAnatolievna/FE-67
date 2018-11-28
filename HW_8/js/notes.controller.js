@@ -12,6 +12,12 @@ var NotesController = (function (model, view) {
                 view.renderNotes(notes);
             });
         });
+
+        view.listen('removeNote', function (id) {
+            model.removeNote(id, function (notes) {
+                view.renderNotes(notes);
+            })
+        })
     }
 
     return {
